@@ -1,0 +1,81 @@
+<html>
+	<head>
+		<title>Leapper</title>
+	
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+		<script src="./leapcursor-with-dependencies.min.js?gestureColor=#6DCC44"></script>
+		<style>
+
+			body { overflow-x: hidden; }
+
+			p { font-family: Calibri; font-size: 25px; width: 60%; max-width: 750px; margin: 0 auto; padding: 10px; border: 10px solid #FFF; text-align: justify; }
+			
+			p.title { font-size: 50px; font-weight: bold; color: #6DCC44; }
+			
+			p a { font-weight: bold; color: #FFF; text-decoration: none; background: #47B6E0; }
+		
+			#click-notice 			 { display: none; width: 550px; height: 580px; position: absolute; color: #6DCC44; }
+			#click-notice .handlebar { float: left; font-size: 480px; line-height: 480px; font-family: Times New Roman;  } 
+			#click-notice .notice 	 { float: left; margin-top: 240px; padding: 10px; margin-left: -30px; background: #6DCC44; color: #FFF; font-size: 80px; line-height: 80px;  } 
+
+		</style>
+	</head>
+
+	<body>
+		<div id="click-notice"><div class="handlebar"></div></div>
+	</body>
+	
+	<script>
+	
+		/**
+		 *
+		 */
+		function bind(elm, evt, f) {
+			
+			if (elm.addEventListener) { elm.addEventListener(evt, f, false); 
+			
+			} else if (elm.attachEvent) { elm.attachEvent('on' + evt, f); }	
+		}	
+	
+		var paragraph, 
+			content, 
+			clicked, 
+			contentSuperwise = ' Tiny Device, Huge Possibilities: The Leap Motion Controller lets you use your computer in a whole new way. Reach out and swipe, grab, pinch, or punch your way through the digital world. Think Big. The Leap Motion Controller tracks your hands at up to 200 frames per second using infrared cameras – giving you a 150° field of view with roughly 8 cubic feet of interactive 3D space.',
+			clickNotice = document.getElementById('click-notice');
+
+		for (var i = 0; i < 50; i++) {
+			
+			paragraph = document.createElement('p');
+
+			if (i == 0) {
+				
+				paragraph.innerHTML = 'LeapCursor.js v0.2 Demo';
+				paragraph.className = 'title';
+				
+			} else { 
+				
+				paragraph.innerHTML = contentSuperwise; 
+
+				bind(paragraph, 'mouseenter', 	function() { this.style.background = '#E3F5DC'; });
+				bind(paragraph, 'mouseleave', 	function() { this.style.background = 'none'; });
+
+				bind(paragraph, 'click', 		function() { 
+					
+					if (clicked) { clicked.style.border = '10px solid #FFF'; } 
+					
+					this.style.border = '10px solid #6DCC44'; 
+					
+					clickNotice.style.top = this.offsetTop;
+					clickNotice.style.left = this.offsetLeft + this.clientWidth + 50;
+					clickNotice.style.display = 'block';
+					
+					clicked = this; 
+				});
+			}
+
+			document.body.appendChild(paragraph);
+		}
+		
+	</script>
+</html>
