@@ -36,4 +36,4 @@ Leapper has a vast development scope with a room for more than one hardware so w
 3. Click on Load unpacked extensions and browse to the folder where Leapper is stored
 4. Bingo!! You have a Leaper Motions Plugin 1.0 installed and running
 5. Open the demo.html file so that you can view live demonstration of Leapper 
-6. Leapper icon ![alt tag](https://raw.github.com/SaurabhPalaspagar/Leapper/icon.png) will appear in the upper right corner of your Chrome Browser and you are good to go (Control button is provided in case your browers does not automatically switch to Leap-Motion controlled hand)
+6. Leapper icon ![alt tag](https://github.com/SaurabhPalaspagar/Leapper/blob/master/icon.png) will appear in the upper right corner of your Chrome Browser and you are good to go (Control button is provided in case your browers does not automatically switch to Leap-Motion controlled hand)
